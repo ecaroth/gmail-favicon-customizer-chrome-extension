@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="gfc_app" >
+<head>
+  <link rel="stylesheet" type="text/css" href="/src/options/options.css">
+  <script src="/src/shared/vendor/jquery.min.js"></script>
+  <script src="/src/shared/vendor/angular.min.js"></script>
+  <script src="/src/options/options.js"></script>
+  <title>Options for Gmail Tab Customizer</title>
+
+</head>
+<body ng-controller="gfc_controller">
+  <div id="acct_list">
+    <B>Gmail Accounts:</B>
+    <div class="acct" ng-repeat="acct in accounts_display">
+      <button class="delete" ng-click="delete($index)" title="Delete this account">x</button>
+      <label>
+        <i>Email Address:</i><input ng-model="acct.email" type="email">
+      </label><BR>
+      <label ng-show="acct.favicon">
+        <i>Favicon</i>
+        <img width="16" height="16" ng-src="{{ acct.favicon }}">&nbsp;&nbsp;&nbsp;<a ng-show="!acct.show_upload" href="#!" ng-click="acct.show_upload=true">change</a>
+      </label>
+      <label ng-show="acct.show_upload || !acct.favicon ">
+        <i>Favicon Upload:</i><input type="file" accept="image/*" fileread="acct.favicon">
+      </label>
+
+    </div>
+  </div>
+  <div id="add" ng-show="loaded">
+    <button ng-click="add_account()">+Add Gmail Account</button>
+    <button ng-click="save()" id="save" ng-disabled="saving">{{ save_text }}</button>
+  </div>
+
+</body>
+</html>

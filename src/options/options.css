@@ -1,0 +1,52 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+#acct_list {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 20px;
+  padding: 10px 0;
+  max-height: 260px;
+  overflow-y: auto; }
+  #acct_list b {
+    display: block;
+    margin-left: 5px;
+    margin-bottom: 10px; }
+  #acct_list .acct {
+    box-sizing: border-box;
+    margin: 5px 5px 15px 35px;
+    border-left: 4px solid #a0adff;
+    padding-left: 8px;
+    position: relative; }
+    #acct_list .acct label {
+      margin: 3px 0;
+      display: inline-block; }
+      #acct_list .acct label i {
+        font-style: normal;
+        display: inline-block;
+        width: 110px; }
+    #acct_list .acct button.delete {
+      position: absolute;
+      top: 4px;
+      padding: 0;
+      margin: 0;
+      -webkit-padding-start: 0;
+      -webkit-padding-end: 0;
+      min-width: 0;
+      width: 20px;
+      left: -33px;
+      min-height: 0; }
+
+#add {
+  box-sizing: border-box;
+  margin-top: 10px;
+  border-top: 1px solid gray;
+  width: 100%;
+  padding: 10px; }
+  #add #save {
+    float: right; }
+
+/*# sourceMappingURL=options.css.map */

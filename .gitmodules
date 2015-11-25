@@ -1,0 +1,9 @@
+[submodule "src/shared/message-relay"]
+	path = src/shared/message-relay
+	url = https://github.com/Docalytics/chrome-extension-message-relay.git
+[submodule "src/shared/content-script-tools"]
+	path = src/shared/content-script-tools
+	url = https://github.com/ecaroth/chrome-extension-content-script-tools.git
+[submodule "src/shared/favico"]
+	path = src/shared/favico
+	url = git@github.com:ejci/favico.js.git
