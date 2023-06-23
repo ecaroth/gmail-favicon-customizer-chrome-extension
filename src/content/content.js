@@ -17,10 +17,10 @@ var GFC = (function(){
     }
 
     function _update_favicon_and_num_messages(){
-        var inbox_link = document.querySelector("div[role=navigation] a[title*=Inbox]")
-        if(inbox_link){
-            var num_unread = (inbox_link.text.indexOf('(') != -1) ? parseInt(inbox_link.text.replace(/[^0-9]/g, '')) : 0,
-                display_num = num_unread;
+        var title = document.title
+        if(title){
+            var num_unread = (title.indexOf('(') != -1) ? parseInt(title.replace(/[^0-9]/g, '')) : 0,
+                display_num = num_unread === 0 ? '' : num_unread.toLocaleString();
             if(num_unread > 99) display_num = '99+'
             if(_num_unread != num_unread) {
                 var anim = num_unread > _num_unread ? 'pop' : 'none';
@@ -31,7 +31,14 @@ var GFC = (function(){
     }
 
     function _setup_favicon_and_watcher(){
-        _favicon = new Favico({}, _img_data_uri);
+        // Reset current favicon
+        const currIcon = document.querySelector('link[rel="shortcut icon"]');
+        currIcon.href = _img_data_uri;
+        currIcon.type = 'image/png';
+        _favicon = new Favico();
+        const img = document.createElement('img');
+        img.src = _img_data_uri;
+        _favicon.image(img);
 
         setInterval( _update_favicon_and_num_messages, _check_update_frequency );
         _update_favicon_and_num_messages();
